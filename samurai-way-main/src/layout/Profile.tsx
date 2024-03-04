@@ -1,6 +1,6 @@
 import React from 'react'
 
-export function Content() {
+export function Profile() {
   return (
     <div className='content'>Content</div>
   )
