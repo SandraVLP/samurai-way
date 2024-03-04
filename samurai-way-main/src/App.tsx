@@ -1,35 +1,21 @@
 import React from 'react';
 import './App.css';
+import { Header } from './layout/Header';
+import { Navigation } from './layout/Navigation';
+import { Content } from './layout/Content';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App-wrapper">
       <Header/>
-    <Technologies />
+    <Navigation/>
+    <Content/>
     </div>
   );
 }
 
 
-const Header = () => {
-  return (  <header>
-    <p>Header </p>  
-      </header>)
-
-}
 
 
-const Technologies = () => {
-  return (
-    <div>
-      <ul>
-        <li>js</li>
-        <li></li>
-        <li>react</li>
-        <li></li>
-        <li></li>
-      </ul>
-    </div>
-  )
-}
+
 export default App;
