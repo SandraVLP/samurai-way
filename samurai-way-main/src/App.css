@@ -4,6 +4,8 @@
 
 
 .App-wrapper {
+  width: 1170px;
+  margin: 0 auto;
   display: grid;
   grid-template-rows: 60px 1fr;
   grid-template-columns: 2fr 10fr;
@@ -13,11 +15,17 @@
 
 .header {
   grid-area: h;
+  background-color: aquamarine;
 
+}
+
+.header img {
+  width: 20px;
 }
 
 .nav {
 grid-area: n;
+background-color: aqua;
 }
 
 .content {
