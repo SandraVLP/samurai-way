@@ -9,7 +9,10 @@ export function MyPosts() {
         <button>Add post</button>
         <button>Remove</button>
      
-  <Post />
+  <Post message='Post 1' likes={2}/>
+  <Post message='Post 2' likes={4}/>
+  <Post message='Post 3' likes={7}/>
+  <Post message='Post 4' likes={10}/>
     </StyledMyPosts>
   )
 }

@@ -2,12 +2,19 @@ import React from 'react'
 import Ava from "../../../../assets/avatarka.jpeg"
 import styled from 'styled-components'
 
-export function Post() {
+type PostPropsType = {
+    message: string
+    likes: number
+
+}
+
+export function Post(props:PostPropsType) {
   return (
     <div>
+        <span>Like {props.likes}</span>
         <StyledImg src={Ava} alt='Avatarka'></StyledImg>
-        Post
-        <span>Like</span>
+        <p>{props.message}</p>
+        
         </div>
   )
 }
