@@ -7,10 +7,40 @@ type DialogItemProps = {
   id: number;
 };
 
+let dialogsFriendsData = [
+  {
+    id: 1,
+    name: "Sasha"
+  },
+  {
+    id: 2,
+    name: "Ivan"
+  },
+  {
+    id: 3,
+    name: "Sveta"
+  }
+]
+
+let dialogsMessageData = [
+  {
+    id: 1,
+    message: "Hi"
+  },
+  {
+    id: 2,
+    message: "How are you"
+  },
+  {
+    id: 3,
+    message: "Bye"
+  }
+]
+
 const DialogItem = (props: DialogItemProps) => {
   return (
     <li>
-      <NavLink to={`/dialogs/${props.id}`}>{props.title}</NavLink>{" "}
+      <NavLink to={`/dialogs/${props.id}`}>{props.title}</NavLink>
     </li>
   );
 };
@@ -27,15 +57,11 @@ export function Dialogs() {
   return (
     <DialogsContent>
       <DialogsTitles>
-        <DialogItem id={1} title="Sasha" />
-        <DialogItem id={2} title="Ivan" />
-        <DialogItem id={3} title="Sveta" />
+        {dialogsFriendsData.map((data) => <DialogItem id={data.id} title={data.name} />)}
       </DialogsTitles>
 
       <div className="messages">
-        <Message text="Hi" />
-        <Message text="How are you" />
-        <Message text="Where are you from?" />
+        {dialogsMessageData.map((data) => <Message text={data.message}/>)}
       </div>
     </DialogsContent>
   );

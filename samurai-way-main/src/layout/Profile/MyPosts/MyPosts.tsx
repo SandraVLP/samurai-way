@@ -2,6 +2,26 @@ import React from 'react'
 import styled from 'styled-components';
 import { Post } from './Post/Post';
 
+let postsData = [
+  
+    {
+      id: 1,
+      message: "Post1",
+      likesCount: 2
+    },
+    {
+      id: 2,
+      message: "Post2",
+      likesCount: 5
+    },
+    {
+      id: 3,
+      message: "Post3",
+      likesCount: 10
+    }
+  
+]
+
 export function MyPosts() {
   return (
     <StyledMyPosts>
@@ -10,11 +30,7 @@ export function MyPosts() {
         <button>Add post</button>
 </div>
 
-     
-  <Post message='Post 1' likes={2}/>
-  <Post message='Post 2' likes={4}/>
-  <Post message='Post 3' likes={7}/>
-  <Post message='Post 4' likes={10}/>
+     {postsData.map((data) => <Post message={data.message} likes={data.likesCount}/> )}
     </StyledMyPosts>
   )
 }
