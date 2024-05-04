@@ -1,15 +1,20 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
 export function Navigation() {
+
+
   return (
     <nav className='nav'>
         <StyledUl>
-            <StyledLi as="a">Profile</StyledLi>
-            <StyledLi as="a">Messages</StyledLi>
-            <StyledLi as="a">News</StyledLi>
-            <StyledLi as="a">Music</StyledLi>
-            <StyledLi as="a">Settingd</StyledLi>
+            <StyledLi >
+              <StyledLink to='/profile'>Profile</StyledLink> 
+            </StyledLi>
+            <StyledLi ><StyledLink to='/dialogs'>Messages</StyledLink> </StyledLi>
+            <StyledLi ><StyledLink to='/news'>News</StyledLink> </StyledLi>
+            <StyledLi ><StyledLink to='/music'>Music</StyledLink> </StyledLi>
+            <StyledLi ><StyledLink to='/settings'>Settings</StyledLink> </StyledLi>
         </StyledUl>    
     </nav>
   )
@@ -24,4 +29,14 @@ const StyledUl = styled.ul `
 const StyledLi = styled.li`
   cursor: pointer;
   text-decoration: none;
+`
+const StyledLink = styled(NavLink) `
+color: black;
+  cursor: pointer;
+text-decoration: none;
+
+&.active {
+  color: rgb(4, 149, 159)
+;
+  }
 `
