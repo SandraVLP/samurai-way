@@ -5,9 +5,11 @@ import { Post } from './Post/Post';
 export function MyPosts() {
   return (
     <StyledMyPosts>
-        <textarea></textarea>
+      <h2>My Posts</h2>
+      <div>        <textarea></textarea>
         <button>Add post</button>
-        <button>Remove</button>
+</div>
+
      
   <Post message='Post 1' likes={2}/>
   <Post message='Post 2' likes={4}/>
@@ -18,5 +20,10 @@ export function MyPosts() {
 }
 
 const StyledMyPosts = styled.div`
-    
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 50%;
+    }
 `
