@@ -1,28 +1,18 @@
 import React from 'react'
 import styled from 'styled-components';
 import { Post } from './Post/Post';
+import { PostType } from '../../../App';
 
-let postsData = [
-  
-    {
-      id: 1,
-      message: "Post1",
-      likesCount: 2
-    },
-    {
-      id: 2,
-      message: "Post2",
-      likesCount: 5
-    },
-    {
-      id: 3,
-      message: "Post3",
-      likesCount: 10
-    }
-  
-]
+type PropsType = {
+  posts: Array<PostType>
 
-export function MyPosts() {
+}
+
+
+
+
+
+export const MyPosts = (props: PropsType) => {
   return (
     <StyledMyPosts>
       <h2>My Posts</h2>
@@ -30,7 +20,7 @@ export function MyPosts() {
         <button>Add post</button>
 </div>
 
-     {postsData.map((data) => <Post message={data.message} likes={data.likesCount}/> )}
+     {props.posts.map((data) => <Post message={data.message} likes={data.likesCount}/> )}
     </StyledMyPosts>
   )
 }

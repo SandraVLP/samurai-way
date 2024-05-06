@@ -1,16 +1,20 @@
-import React from 'react'
+import React from "react";
 
-import { MyPosts } from './MyPosts/MyPosts';
-import { ProfileInfo } from './ProfileInfo';
+import { MyPosts } from "./MyPosts/MyPosts";
+import { ProfileInfo } from "./ProfileInfo";
 
-export function Profile() {
+import { PostType } from "../../App";
+
+type PropsType = {
+  posts: Array<PostType>;
+};
+
+export const Profile = (props: PropsType) => {
   return (
-    <div className='content'>
+    <div className="content">
+      <ProfileInfo />
 
-<ProfileInfo/>
-<MyPosts />
+      <MyPosts posts={props.posts} />
     </div>
-  )
-}
-
-
+  );
+};

@@ -11,9 +11,10 @@ type PostPropsType = {
 export function Post(props:PostPropsType) {
   return (
     <div>
-        <span>Like {props.likes}</span>
+       
         <StyledImg src={Ava} alt='Avatarka'></StyledImg>
         <p>{props.message}</p>
+        <span>Like {props.likes}</span>
         
         </div>
   )
