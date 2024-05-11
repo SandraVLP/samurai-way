@@ -5,88 +5,32 @@ import { Navigation } from './layout/Navigation';
 import { Profile } from './layout/Profile/Profile';
 import { GlobalStyles } from './styles/GlobalStyles';
 import { Dialogs } from './layout/Dialogs/Dialogs';
-import { BrowserRouter, Route } from 'react-router-dom';
-
-
-export type PostType= {
-  id: number,
-  message: string,
-  likesCount: number
-}
-
-export type dialogsFriendsType = {
-  id: number,
-  name: string
-};
-
-export type messagePropsType = {
-  id: number,
-  message: string
-
-}
-
-function App() {
-
-
-  let postsData: Array<PostType> = [
-    {
-      id: 1,
-      message: "Post1",
-      likesCount: 2,
-    },
-    {
-      id: 2,
-      message: "Post2",
-      likesCount: 5,
-    },
-    {
-      id: 3,
-      message: "Post3",
-      likesCount: 10,
-    },
-  ];
+import { Route } from 'react-router-dom';
+import { RootStateType } from './redux/state';
 
 
 
-let dialogsFriendsData: Array<dialogsFriendsType> = [
-  {
-    id: 1,
-    name: "Sasha"
-  },
-  {
-    id: 2,
-    name: "Ivan"
-  },
-  {
-    id: 3,
-    name: "Sveta"
-  }
-]
+function App(props: {state: RootStateType}) {
 
-let messageData: Array<messagePropsType> = [
-  {
-    id: 1,
-    message: "Hi"
-  },
-  {
-    id: 2,
-    message: "How are you"
-  },
-  {
-    id: 3,
-    message: "Bye"
-  }
-]
+  const addPost = (text:string) => {
+    const newPost =       {
+        id: 4,
+        message: text,
+        likesCount: 0,
+      }
+      props.state.profilePage.posts.push(newPost);
+      console.log("lalla")
+} 
   
   return (
     <div className="App-wrapper">
-      <BrowserRouter>      
+  
       <Header/>
     <Navigation/>
-    <Route path="/profile" render={() => <Profile posts={postsData}/>}/>
-    <Route path="/dialogs" render={() => <Dialogs messages={messageData} friendsData={dialogsFriendsData}/>}/>
+    <Route path="/profile" render={() => <Profile posts={props.state.profilePage.posts} addPost={addPost}/>}/>
+    <Route path="/dialogs" render={() => <Dialogs messages={props.state.dialogsPage.messages} dialogs={props.state.dialogsPage.dialogs}/>}/>
 
-    <GlobalStyles /></BrowserRouter>
+    <GlobalStyles />
 
     </div>
   );

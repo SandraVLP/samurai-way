@@ -2,19 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import { DialogItem } from "./DialogItem";
 import { Message } from "./Message";
-import { messagePropsType } from "../../App";
-import { dialogsFriendsType } from "../../App";
+import { DialogsPageType } from "../../redux/state";
 
-type PropsType = {
-  messages: Array<messagePropsType>
-  friendsData: Array<dialogsFriendsType>
-}
-
-export function Dialogs(props: PropsType) {
+export function Dialogs(props: DialogsPageType) {
   return (
     <DialogsContent>
       <DialogsTitles>
-        {props.friendsData.map((data) => <DialogItem id={data.id} title={data.name} />)}
+        {props.dialogs.map((data) => <DialogItem id={data.id} title={data.name} />)}
       </DialogsTitles>
 
       <div className="messages">
